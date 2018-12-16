@@ -1,0 +1,6 @@
+server:
+  port: 8587
+logging:
+  file: logs/RevolutTransfer.log
+  level:
+    logging.level.com.revolut: DEBUG, ERROR
