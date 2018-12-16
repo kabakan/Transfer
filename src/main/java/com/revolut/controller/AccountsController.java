@@ -53,7 +53,7 @@ public class AccountsController {
         try {
             return ResponseEntity.ok(accountsService.update(accounts));
         } catch (Exception ex) {
-            LOG.error("ERROR: ServiceAccounts.add "+ex.getMessage());
+            LOG.error("ERROR: ServiceAccounts.update "+ex.getMessage());
             return ResponseEntity.ok(bodyResponse.set("FAIL","update account"));
         }
     }
@@ -64,7 +64,7 @@ public class AccountsController {
         try {
             return ResponseEntity.ok(accountsService.delete(accounts));
         } catch (Exception ex) {
-            LOG.error("ERROR: ServiceAccounts.add "+ex.getMessage());
+            LOG.error("ERROR: ServiceAccounts.delete "+ex.getMessage());
             return ResponseEntity.ok(bodyResponse.set("FAIL","Delete account"));
         }
     }
