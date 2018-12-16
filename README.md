@@ -46,10 +46,10 @@ curl -X POST \
 
 #1.6. Удалить счет
 
-curl -X POST  http://localhost:8587/api/accounts/delete
-  -H 'Content-Type: application/json'   -d '{
-   "id": 1
-}'
+curl -X POST \
+  'http://localhost:8587/api/accounts/delete?id=1' \
+  -H 'Content-Type: application/json'
+
 
 #1.7. Проверить счет
 

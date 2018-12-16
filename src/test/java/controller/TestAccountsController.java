@@ -89,7 +89,7 @@ public class TestAccountsController {
         acc.setAccCode("ACC7788454545");
         acc.setCurrCode("USD");
         acc.setSumm(10.1);
-        when(accountsService.delete(acc)).thenReturn(bodyResponse);
+        when(accountsService.delete(1)).thenReturn(bodyResponse);
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/api/accounts/delete"))
                 .andExpect(status().isOk())

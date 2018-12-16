@@ -16,9 +16,11 @@ public interface AccountsService {
 
     public BodyResponse update(Accounts accounts) throws RevolutException;
 
-    public BodyResponse delete(Accounts accounts) throws RevolutException;
+    public BodyResponse delete(Integer id) throws RevolutException;
 
     public List<Accounts> get(String clientName, String accCode) throws RevolutException;
+
+    public Accounts getId(Integer id) throws RevolutException;
 
     public List<Accounts> getAll() throws RevolutException;
 

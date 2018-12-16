@@ -60,9 +60,9 @@ public class AccountsController {
 
     @ApiOperation(value = "Delete accounts")
     @RequestMapping(value="/delete", method = RequestMethod.POST)
-    public ResponseEntity<BodyResponse> delete(@RequestBody Accounts accounts ) {
+    public ResponseEntity<BodyResponse> delete(@RequestParam(value ="id", required = false) Integer id) {
         try {
-            return ResponseEntity.ok(accountsService.delete(accounts));
+            return ResponseEntity.ok(accountsService.delete(id));
         } catch (Exception ex) {
             LOG.error("ERROR: ServiceAccounts.delete "+ex.getMessage());
             return ResponseEntity.ok(bodyResponse.set("FAIL","Delete account"));

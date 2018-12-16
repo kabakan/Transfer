@@ -37,7 +37,8 @@ public class AccountsImpl implements AccountsService {
     }
 
     @Override
-    public BodyResponse delete(Accounts accounts) throws RevolutException {
+    public BodyResponse delete(Integer id) throws RevolutException {
+        Accounts accounts = getId(id);
         accounts.setStatus("DELETE");
         accounts.setChangeDate(CreateDate.getDate());
         MapAccounts.delete(accounts);
@@ -53,6 +54,11 @@ public class AccountsImpl implements AccountsService {
             }
         });
         return list;
+    }
+
+    @Override
+    public Accounts getId(Integer id) throws RevolutException {
+        return MapAccounts.get().get(id);
     }
 
     @Override
