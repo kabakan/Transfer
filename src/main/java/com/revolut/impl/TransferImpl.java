@@ -82,7 +82,13 @@ public class TransferImpl implements TransferService {
                     Accounts fromAcc = accountsService.get(null, deque.getFromAccCode()).get(0);
                     Accounts toAcc = accountsService.get(null, deque.getToAccCode()).get(0);
 
-                    if (!fromAcc.getCurrCode().equals(deque.getCurrCode())) {
+                    if (!"ACTIVE".equals(fromAcc.getStatus()) || !"ACTIVE".equals(toAcc.getStatus())) {
+                        isTransfer=false;
+                        title = "This accounts is not active";
+                        status = "FAIL";
+                    }
+
+                    if (isTransfer && !fromAcc.getCurrCode().equals(deque.getCurrCode())) {
                         isTransfer=false;
                         title = "Currency code of the sender and the recipient do not match";
                         status = "FAIL";
