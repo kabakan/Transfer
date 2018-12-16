@@ -88,7 +88,7 @@ public class TransferImpl implements TransferService {
                         status = "FAIL";
                     }
 
-                    if (fromAcc.getSumm() < deque.getSumm()) {
+                    if (isTransfer && fromAcc.getSumm() < deque.getSumm()) {
                         isTransfer=false;
                         title = "Not enough count to transfer";
                         status = "FAIL";
