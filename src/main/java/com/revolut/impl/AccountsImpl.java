@@ -31,8 +31,13 @@ public class AccountsImpl implements AccountsService {
 
     @Override
     public BodyResponse update(Accounts accounts) throws RevolutException {
-        accounts.setChangeDate(CreateDate.getDate());
-        MapAccounts.update(accounts);
+        Accounts acc = getId(accounts.getId());
+        acc.setAccCode(accounts.getAccCode());
+        acc.setClientName(accounts.getClientName());
+        acc.setSumm(accounts.getSumm());
+        acc.setCurrCode(accounts.getCurrCode());
+        acc.setChangeDate(CreateDate.getDate());
+        MapAccounts.update(acc);
         return bodyResponse.set("SUCCESS","Update account");
     }
 

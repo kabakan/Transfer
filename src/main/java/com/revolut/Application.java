@@ -30,6 +30,6 @@ public class Application {
 
     @RequestMapping("/start")
     public String home() {
-        return "Start RevolutTransfer"+ LocalDate.now();
+        return "Start RevolutTransfer: "+ LocalDate.now();
     }
 }
